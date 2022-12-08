@@ -7,6 +7,7 @@
 
     {{-- * table content --}}
     <div class="table-responsive col-md-10">
+      <a href="/dashboard/posts/create" class="btn btn-primary mb-3">Create New post</a>
       <table class="table table-striped table-sm">
         <thead>
           <tr>
