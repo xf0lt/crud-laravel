@@ -14,9 +14,15 @@
                   @csrf
                   <button class="btn btn-danger mb-2" onclick="return confirm('Are you sure deleted post?')"><span data-feather="x-circle"></span>Delete</button>
                 </form>
+               
+               @if ($post->image)
+                  <div style="max-height: 350px; overflow:hidden;">
+                     <img src="{{ asset('storage/' . $post->image) }}" alt="..." class="img-fluid">
+                  </div>
+               @else
+                  <img src="https://www.teahub.io/photos/full/116-1166956_1200-x-480.jpg" alt="..." class="img-fluid">
+               @endif
 
-
-               <img src="https://www.teahub.io/photos/full/116-1166956_1200-x-480.jpg" alt="..." class="img-fluid">
 
             <article class="my-3 fs-5">
                {!! $post->body !!}

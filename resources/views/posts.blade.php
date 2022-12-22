@@ -25,8 +25,14 @@
    {{-- all posts --}}
    @if ($posts->count())  
       <div class="card mb-3">
+         @if ($posts[0]->image)
+         <div style="max-height: 400px; overflow:hidden;">
+            <img src="{{ asset('storage/' . $posts[0]->image) }}" alt="..." class="img-fluid">
+         </div>
+         @else
+         <img src="https://www.teahub.io/photos/full/116-1166956_1200-x-480.jpg" class="card-img-top" alt=" {{ $posts[0]->category->name }}">
+         @endif
       {{-- <img src="https://source.unsplash.com/random/200x400/?{{ $posts[0]->category->name }}" class="card-img-top" alt=" {{  $post->category->name }}"> --}}
-      <img src="https://www.teahub.io/photos/full/116-1166956_1200-x-480.jpg" class="card-img-top" alt=" {{ $posts[0]->category->name }}">
          <div class="card-body text-center">
            <h3 class="card-title"><a href="/posts?author={{ $posts[0]->slug }}" class="text-decoration-none text-dark">{{ $posts[0]->title }}</a></h3>
             <p>
@@ -45,8 +51,11 @@
             <div class="col-md-4 mb-3">
                <div class="card">
                   <div class="position-absolute px-3 py-2" style="background-color: rgba(0, 0, 0, 0.7)"><a href="/posts?category={{ $post->category->slug }}" class="text-decoration-none text-white">{{ $post->category->name }}</a></div>
-                  {{-- <img src="link website image?{{ $post->category->name }}" alt="{{  $post->category->name  }}"> --}}
+                  @if ($post->image)
+                     <img src="{{ asset('storage/' . $post->image) }}" alt="..." class="img-fluid">
+                   @else
                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkIwlp0SWjJxXpKPGh6cmTV0BSXUJOlzc59g&usqp=CAU" alt="{{  $post->category->name  }}">
+                   @endif
                      <div class="card-body">
                         <h5 class="card-title">{{ $post->title }}</h5>
                         <p>
