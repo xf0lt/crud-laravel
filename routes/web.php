@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminCategoryController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\RegisterController;
@@ -70,22 +71,6 @@ Route::get('/dashboard', function() {
 
 Route::get('/dashboard/posts/checkSlug', [DashboardPostController::class, 'checkSlug'])->middleware('auth');
 Route::resource('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-// Route::posts('/dashboard/posts', DashboardPostController::class)->middleware('auth');
-
-// single categories
-// Route::get('/categories/{category:slug}', function(Category $category) {
-   //  return view('posts', [
-      //   'title' => "Post By Category : $category->name",
-      //   'active' => 'categories',
-      //   'posts' => $category->posts->load('category', 'author')
-   //  ]);
-// });
 
 
-// Route::get('/authors/{author:username}', function(User $author) {
-//     return view('posts', [
-//         'title' => "Post By Author : $author->name",
-//         'active' => 'posts',
-//         'posts' => $author->posts->load('category', 'author'),
-//     ]);
-// });
+Route::resource('/dashboard/categories', AdminCategoryController::class)->except('show')->middleware('auth');

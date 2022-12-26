@@ -12,13 +12,13 @@
          @csrf
          {{-- * TITLE --}}
          <div class="mb-3">
-           <label for="title" class="form-label">Title</label>
-           <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required value="{{ old('title', $post->title )}}">
-           @error('title')
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control @error('title') is-invalid @enderror" id="title" name="title" required value="{{ old('title', $post->title )}}">
+            @error('title')
                <div class="invalid-feedback">
                   {{ $message }}
                </div>
-           @enderror
+            @enderror
          </div>
          
          {{-- *SLUG --}}
@@ -26,9 +26,9 @@
             <label for="slug" class="form-label">Slug</label>
             <input type="text" class="form-control @error('slug') is-invalid @enderror" id="slug" name="slug" required value="{{ old('slug', $post->slug ) }}">
             @error('slug')
-                <div class="invalid-feedback">
+               <div class="invalid-feedback">
                   {{ $message }}
-                </div>
+               </div>
             @enderror
          </div>
 
@@ -43,7 +43,7 @@
                      <option value="{{ $category->id }}">{{ $category->name }}</option>                      
                   @endif
                @endforeach
-             </select>
+            </select>
          </div>
 
          {{-- * IMAGE --}}
@@ -73,7 +73,7 @@
             <trix-editor input="body"></trix-editor>
          </div>   
          <button type="submit" class="btn btn-primary">Update Post</button>
-       </form>
+      </form>
    </div>
 
    {{-- *SCRIPT --}}
